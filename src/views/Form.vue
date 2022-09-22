@@ -1,6 +1,4 @@
 <template>
-  <span>{{ formData.name }}</span>
-
   <FillForm v-if="!formAnswered" @update="this.formData = $event"></FillForm>
   <ViewForm :formData="formData" v-else></ViewForm>
 </template>
@@ -18,7 +16,12 @@ export default {
   data() {
     return {
       formAnswered: false,
-      formData: { name: "" },
+      formData: {
+        name: "",
+        lastName: "",
+        ODS: [],
+        fav: [],
+      },
     };
   },
 };
