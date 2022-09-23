@@ -1,5 +1,5 @@
 <template>
-  <FillForm v-if="!formAnswered" @update="this.formData = $event"></FillForm>
+  <FillForm v-if="!formAnswered" @update="this.onFormSubmited"></FillForm>
   <ViewForm :formData="formData" v-else></ViewForm>
 </template>
 
@@ -19,10 +19,16 @@ export default {
       formData: {
         name: "",
         lastName: "",
-        ODS: [],
-        fav: [],
+        ods: [],
+        favouriteCharacter: "",
       },
     };
+  },
+  methods: {
+    onFormSubmited(payload) {
+      this.formData = payload;
+      this.formAnswered = true;
+    },
   },
 };
 </script>
