@@ -9,8 +9,9 @@
   },
   "dependencies": {
     "bootstrap": "^5.2.1",
+    "bootstrap-vue": "^2.22.0",
     "core-js": "^3.6.5",
-    "vue": "^3.0.0"
+    "vue": "^3.2.39"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.15",
