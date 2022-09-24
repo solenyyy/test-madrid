@@ -1,6 +1,6 @@
-# test-madrid
+# Prueba Técnica (Fundación Cibervoluntarios)
 
-## Project setup
+## Project setup 
 ```
 npm install
 ```
