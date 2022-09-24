@@ -28,6 +28,7 @@ export default {
     onFormSubmited(payload) {
       this.formData = payload;
       this.formAnswered = true;
+      this.formData.ods = this.formData.ods.join(", ").replace(/_/g, " ");
     },
   },
 };

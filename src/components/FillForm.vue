@@ -1,48 +1,52 @@
 <template>
   <form action="javascript:void(0);">
-    <div class="form-field">
-      <label for="name">Tu nombre:</label>
-      <input
-        type="text"
-        v-model="formData.name"
-        placeholder="Nombre"
-        required
-      />
-    </div>
-    <div class="form-field">
-      <label for="lastname">Tu apellido:</label>
-      <input
-        type="text"
-        v-model="formData.lastName"
-        placeholder="Apellido"
-        required
-      />
-    </div>
-    <div class="check-field">
-      <label v-if="!validODSSelection">Solo elige entre 1 y 3 ODS:</label>
-      <div class="wrapper">
-        <div v-for="ods in allODSs" :key="ods.id">
-          <input
-            required
-            type="checkbox"
-            :id="ods.id"
-            @change="check($event)"
-          />
-          <label for="ods.id"
-            ><img :src="require(`../assets/ODS/${ods.image}`)"
-          /></label>
+    <div class="margin">
+      <div class="form-field">
+        <label for="name">Tu nombre:</label>
+        <input
+          type="text"
+          v-model="formData.name"
+          placeholder="Nombre"
+          required
+        />
+      </div>
+      <div class="form-field">
+        <label for="lastname">Tu apellido:</label>
+        <input
+          type="text"
+          v-model="formData.lastName"
+          placeholder="Apellido"
+          required
+        />
+      </div>
+      <div class="check-field">
+        <label v-if="!validODSSelection"
+          >Tienes que elegir entre 1 y 3 ODS:</label
+        >
+        <div class="wrapper">
+          <div v-for="ods in allODSs" :key="ods.id">
+            <input
+              required
+              type="checkbox"
+              :id="ods.id"
+              @change="check($event)"
+            />
+            <label for="ods.id"
+              ><img :src="require(`../assets/ODS/${ods.image}`)"
+            /></label>
+          </div>
         </div>
       </div>
+      <div class="select">
+        <label class="fav-label">Elige tu fav:</label>
+        <select name="char" v-model="formData.favouriteCharacter">
+          <option v-for="char in this.characters" :key="char">
+            {{ char.Name }}
+          </option>
+        </select>
+      </div>
+      <button class="btn" @click="sendForm()">Enviar</button>
     </div>
-    <div class="select">
-      <label class="fav-label">Elige tu fav:</label>
-      <select name="char" v-model="formData.favouriteCharacter">
-        <option v-for="char in this.characters" :key="char">
-          {{ char.Name }}
-        </option>
-      </select>
-    </div>
-    <button class="btn" @click="sendForm()">Enviar</button>
   </form>
 </template>
 <script>
@@ -79,7 +83,6 @@ export default {
   },
   methods: {
     sendForm() {
-      console.log(this.formData);
       if (this.validODSSelection) this.$emit("update", this.formData);
     },
     check: function (event) {
@@ -89,10 +92,6 @@ export default {
         const indexOfOds = this.formData.ods.indexOf(event.target.id);
         if (indexOfOds > -1) this.formData.ods.splice(indexOfOds, 1);
       }
-      console.log(this.formData.ods);
-    },
-    getAllODSs() {
-      return ODSs;
     },
   },
 };
@@ -115,14 +114,16 @@ img {
 form {
   max-width: 700px;
   padding: 3rem;
-  font-family: "helvetica neue", helvetica, arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   color: #222;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  box-shadow: 1px 1px 6px 1px rgba(128, 128, 128, 0.674);
 }
 
 .form-field,
 .select {
-  display: flex;
   margin: 0 0 1rem 0;
 }
 label,
@@ -150,12 +151,21 @@ select {
   background-color: transparent;
   border-radius: 2px;
   padding: 0.5rem 2rem;
-  font-size: 1rem;
+  font-size: 1.1rem;
   border-radius: 10px;
   cursor: pointer;
   margin: 0 auto;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .btn:hover {
   border: 2px solid #000;
+}
+.wrapper {
+  margin: 2% 0 5% 0;
+}
+@media (max-width: 600px) {
+  img {
+    width: 60px;
+  }
 }
 </style>

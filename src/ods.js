@@ -1,22 +1,22 @@
 export const ODSs = [
   {
-    id: "fin_de_la_pobreza",
+    id: "Fin_de_la_Pobreza",
     image: "S-WEB-Goal-01.png"
   },
   {
-    id: "hambre_cero",
+    id: "Hambre_Cero",
     image: "S-WEB-Goal-02.png",
   },
   {
-    id: "salud_y_bienestar",
+    id: "Salud_y_Bienestar",
     image: "S-WEB-Goal-03.png",
   },
   {
-    id: "educacion_de_calidad",
+    id: "Educacion_de_Calidad",
     image: "S-WEB-Goal-04.png",
   },
   {
-    id: "igualdad_de_genero",
+    id: "Igualdad_de_Genero",
     image: "S-WEB-Goal-05.png",
   }
 ]
