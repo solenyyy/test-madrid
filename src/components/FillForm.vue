@@ -119,6 +119,7 @@ form {
   font-size: 1.1rem;
   border-radius: 20px;
   border: 2px solid transparent;
+  margin: 0 auto;
   box-shadow: 1px 1px 6px 1px rgba(128, 128, 128, 0.674);
 }
 
